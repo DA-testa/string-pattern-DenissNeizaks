@@ -5,13 +5,11 @@ def read_input():
         text = input()
         return (pattern, text)
     elif "F" in input_method:
-        file = input()
+        file = "06.txt"
         file = ("tests/" + file)
         with open(file,'r') as f:
-            all = f.readline()
-            b = all.split()
-            pattern = b[0]
-            text = b[1]
+            pattern = f.readline()
+            text = f.readline()
         f.close()
         return (pattern, text)
     
