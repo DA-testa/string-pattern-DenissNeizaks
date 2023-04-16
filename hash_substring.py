@@ -1,32 +1,55 @@
-# python3
-
 def read_input():
-    # this function needs to aquire input both from keyboard and file
-    # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
+    input_method = input()
+    if "I" in input_method:
+        pattern = input()
+        text = input()
+        return (pattern, text)
+    elif "F" in input_method:
+        file = input()
+        file = ("tests/" + file)
+        with open(file,'r') as f:
+            pattern = f.readline()
+            text = f.readline()
+        f.close()
+        return (pattern, text)
     
     
-    # after input type choice
-    # read two lines 
-    # first line is pattern 
-    # second line is text in which to look for pattern 
+def print_occurences(output):
+    print (output)
     
-    # return both lines in one return
     
-    # this is the sample return, notice the rstrip function
-    return (input().rstrip(), input().rstrip())
+def get_occurences(pattern, text):
+    String = ""
+    array = []
+    for i in range (len(text)):
+        if (text[i] == pattern[0]):
+            test = True
+            currenttext = text [i:i+len(pattern)]
 
-def print_occurrences(output):
-    # this function should control output, it doesn't need any return
-    print(' '.join(map(str, output)))
+            for j in range (len(currenttext)):
+                if (len(currenttext) < len(pattern)):
+                    test = False
+                    break
+            
+                if (pattern[j] == currenttext[j]):
 
-def get_occurrences(pattern, text):
-    # this function should find the occurances using Rabin Karp alghoritm 
-
-    # and return an iterable variable
-    return [0]
-
-
-# this part launches the functions
+                    continue
+                
+                else:
+                    test = False
+                    break
+        
+            if (test == True):
+                array.append(i)
+            
+    for i in range (len(array)):
+        String = String + str(array[i]) + " "
+    return (String)
+    
 if __name__ == '__main__':
-    print_occurrences(get_occurrences(*read_input()))
-
+    input_list = read_input()
+    
+    a = input_list[0]
+    a = a[0:len(a)-1]
+    print (a, input_list[1])
+    print_occurences(get_occurences(a, input_list[1]))
