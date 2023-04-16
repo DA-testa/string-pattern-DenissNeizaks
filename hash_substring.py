@@ -5,7 +5,7 @@ def read_input():
         text = input()
         return (pattern, text)
     elif "F" in input_method:
-        file = "06.txt"
+        file = "06"
         file = ("tests/" + file)
         with open(file,'r') as f:
             pattern = f.readline()
