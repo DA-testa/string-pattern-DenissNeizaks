@@ -50,5 +50,6 @@ if __name__ == '__main__':
     input_list = read_input()
     
     a = input_list[0]
+    a = a[0:len(a)-1]
 
     print_occurences(get_occurences(a, input_list[1]))
