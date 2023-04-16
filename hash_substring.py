@@ -51,5 +51,5 @@ if __name__ == '__main__':
     
     a = input_list[0]
     a = a[0:len(a)-1]
-    print (a, input_list[1])
+
     print_occurences(get_occurences(a, input_list[1]))
