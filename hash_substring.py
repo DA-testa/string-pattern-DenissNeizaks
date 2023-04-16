@@ -9,6 +9,7 @@ def read_input():
         file = ("tests/" + file)
         with open(file,'r') as f:
             pattern = f.readline()
+            pattern = pattern[0:len(pattern)-1]
             text = f.readline()
         f.close()
         return (pattern, text)
@@ -50,6 +51,5 @@ if __name__ == '__main__':
     input_list = read_input()
     
     a = input_list[0]
-    a = a[0:len(a)-1]
 
     print_occurences(get_occurences(a, input_list[1]))
