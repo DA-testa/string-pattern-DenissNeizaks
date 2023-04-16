@@ -8,8 +8,10 @@ def read_input():
         file = input()
         file = ("tests/" + file)
         with open(file,'r') as f:
-            pattern = f.readline()
-            text = f.readline()
+            all = f.readline()
+            b = all.split()
+            pattern = b[0]
+            text = b[1]
         f.close()
         return (pattern, text)
     
